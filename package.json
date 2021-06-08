@@ -1,0 +1,14 @@
+{
+  "name": "fe-challenge",
+  "version": "0.0.1",
+  "main": "server/server.js",
+  "repository": "git@github.com:fast-radius/fe-challenge.git",
+  "author": "Fast Radius",
+  "license": "MIT",
+  "scripts": {
+    "server": "node server/server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

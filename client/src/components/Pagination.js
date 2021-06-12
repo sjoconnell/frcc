@@ -2,6 +2,26 @@
 /** @jsx jsx */
 import { jsx, css } from '@emotion/react';
 
+function PaginationButton({ handleClick, disabled, children }) {
+  return (
+    <button
+      css={css`
+        border: 1px solid transparent;
+        cursor: ${disabled ? 'auto' : 'pointer'};
+        font-weight: bold;
+        background: none;
+        &:hover {
+          color: ${disabled ? 'auto' : 'blue'};
+        }
+      `}
+      onClick={handleClick}
+      disabled={disabled}
+    >
+      {children}
+    </button>
+  );
+}
+
 export function Pagination({ totalPages, setCurrentPage, currentPage }) {
   return (
     <div
@@ -11,23 +31,14 @@ export function Pagination({ totalPages, setCurrentPage, currentPage }) {
         width: 70%;
       `}
     >
-      <button
-        css={css`
-          border: 1px solid transparent;
-          cursor: ${currentPage === 1 ? 'auto' : 'pointer'};
-          font-weight: bold;
-          background: none;
-          &:hover {
-            color: ${currentPage === 1 ? 'auto' : 'blue'};
-          }
-        `}
-        onClick={() => {
+      <PaginationButton
+        disabled={currentPage === 1}
+        handleClick={() => {
           setCurrentPage(currentPage - 1);
         }}
-        disabled={currentPage === 1}
       >
         Prev
-      </button>
+      </PaginationButton>
       {[...Array(totalPages)].map((_, i) => (
         <button
           data-testid="pagination-page"
@@ -51,23 +62,14 @@ export function Pagination({ totalPages, setCurrentPage, currentPage }) {
           {i + 1}
         </button>
       ))}
-      <button
-        css={css`
-          border: 1px solid transparent;
-          cursor: ${currentPage === totalPages ? 'auto' : 'pointer'};
-          font-weight: bold;
-          background: none;
-          &:hover {
-            color: ${currentPage === totalPages ? 'auto' : 'blue'};
-          }
-        `}
-        onClick={() => {
+      <PaginationButton
+        disabled={currentPage === totalPages}
+        handleClick={() => {
           setCurrentPage(currentPage + 1);
         }}
-        disabled={currentPage === totalPages}
       >
         Next
-      </button>
+      </PaginationButton>
     </div>
   );
 }

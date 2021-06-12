@@ -6,9 +6,12 @@
   "author": "Fast Radius",
   "license": "MIT",
   "scripts": {
-    "server": "node server/server.js"
+    "server": "nodemon server/server.js"
   },
   "dependencies": {
     "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
   }
 }

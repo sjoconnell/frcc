@@ -27,5 +27,6 @@ To run test suite
 - The client is created using [Create React App](https://create-react-app.dev/) as it is one of the easiest ways to get a React app started.
 - It is styled using the CSS-in-JS library [Emotion](https://emotion.sh/docs/introduction).
   - It allows scoped CSS so we never have naming collisions
-  - It allows me to keep my CSS in the same file to avoid context switching and makes it easy to remove when the component is no longer needed
-- There is no state management library. Being a relatively small app React itself is more than capable of handling state.
+  - It allows me to keep my CSS in the same file to avoid context switching
+  - makes it easy to remove when the component is no longer needed
+- There is no state management library. Being a relatively small app React itself is more than capable of handling state
